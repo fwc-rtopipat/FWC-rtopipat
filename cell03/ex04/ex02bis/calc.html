@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      line-height: 1.4;
+    }
+    .wrap {
+      max-width: 520px;
+      margin: 0 auto;
+      border: 1px solid #000000;
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    input[type="text"], select {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #000000;
+      border-radius: 8px;
+      min-width: 140px;
+    }
+    select {
+      min-width: 70px;
+    }
+    input[type="submit"] {
+      padding: 10px 14px;
+      font-size: 16px;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .hint {
+      margin-top: 10px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2>Basic Calculator</h2>
+
+    <form id="calcForm">
+      <div class="row">
+        <input id="left" type="text" inputmode="numeric" autocomplete="off" placeholder="Left (>= 0)" />
+
+        <select id="op" aria-label="operator">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option>
+          <option value="%">%</option>
+        </select>
+
+        <input id="right" type="text" inputmode="numeric" autocomplete="off" placeholder="Right (>= 0)" />
+
+        <input type="submit" value="Try me!" />
+      </div>
+
+      <div class="hint">
+        Only positive integers (>= 0). Division/modulo by 0 -> "It's over 9000!"
+      </div>
+    </form>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    // alert popup
+    setInterval(function () {
+      alert("Please, use me...");
+    }, 30000);
+
+    function isValidNonNegativeInteger(str) {
+      return typeof str === "string" && /^\d+$/.test(str);
+    }
+
+    function compute(a, op, b) {
+      switch (op) {
+        case "+": return a + b;
+        case "-": return a - b;
+        case "*": return a * b;
+        case "/": return a / b;
+        case "%": return a % b;
+        default: return NaN;
+      }
+    }
+
+    $(document).ready(function () {
+      $("#calcForm").on("submit", function (e) {
+        e.preventDefault();
+
+        var leftStr = String($("#left").val()).trim();
+        var rightStr = String($("#right").val()).trim();
+        var op = String($("#op").val());
+
+        if (!isValidNonNegativeInteger(leftStr) || !isValidNonNegativeInteger(rightStr)) {
+          alert("Error :(");
+          return;
+        }
+
+        var left = Number(leftStr);
+        var right = Number(rightStr);
+
+        if ((op === "/" || op === "%") && right === 0) {
+          alert("It's over 9000!");
+          console.log("It's over 9000!");
+          return;
+        }
+
+        var result = compute(left, op, right);
+
+        alert(String(result));
+        console.log(result);
+      });
+    });
+  </script>
+</body>
+</html>

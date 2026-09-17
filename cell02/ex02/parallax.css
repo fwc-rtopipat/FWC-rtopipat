@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.parallax {
+    height: 100vh;                 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;  /* parallax */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parallax-1 {
+    background-image: url("https://preview.redd.it/totally-epic-programmer-meme-v0-mswx9ggti3da1.png?auto=webp&s=d8937e5ac7fa77527403f5f230b23e3bfd97af88");
+}
+
+.parallax-2 {
+    background-image: url("https://images.ismtech.net/Images/Blog/Article2023/10ProgrammingMemesforDeveloper/ProgrammingMeme10.jpg");
+}
+
+.text {
+    color: white;
+    font-size: 48px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+.content {
+    height: 300px;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    text-align: center;
+    padding: 40px;
+}
