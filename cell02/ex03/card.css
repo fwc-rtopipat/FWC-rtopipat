@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    background-color: #eeeeee;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    width: 400px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+header {
+    background-color: #333333;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border: none;
+    padding: 10px;
+}
+
+.profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+h2 {
+    margin: 5px;
+}
+
+p {
+    margin: 5px;
+    color: #666666;
+}
+
+.social img {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+}
+
+.contact {
+    display: inline-block;
+    background-color: #333333;
+    color: white;
+    text-decoration: none;
+    padding: 10px 40px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.contact:hover {
+    background-color: #555555;
+}
+
